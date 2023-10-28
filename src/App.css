@@ -1,0 +1,12 @@
+/* target elements by id/class names */
+
+#root {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  background-color: #242424;
+}

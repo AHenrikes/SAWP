@@ -1,0 +1,10 @@
+/* target elements by html elements */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  font-size: xx-large;
+  font-weight: 900;
+}
