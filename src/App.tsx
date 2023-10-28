@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <h1 className='text-white'>
-        Hello wolrd!
+        Hello wolrd😃
       </h1>
     </>
   )
