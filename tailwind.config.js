@@ -7,7 +7,7 @@ export default {
   theme: {
     screens: {
       // Responsive most common screen sizes
-      'mobile': '0px',
+      'mobile': '375px',
       'tablet': '1024',
       'desktop': '1440px'
     },
