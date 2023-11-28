@@ -1,6 +1,6 @@
 import React from "react";
 
-function header() {
+function Header() {
   return <div>header</div>;
 }
 
