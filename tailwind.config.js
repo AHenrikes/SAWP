@@ -30,6 +30,12 @@ export default {
       borderGradientStart: '#000585',
       borderGradientEnd: '#85006F'
     },
+    // Imported fonts
+    fontFamily: {
+      krona: ['"Krona One"', 'sans-serif'],
+      orbitron: ['Orbitron', 'sans-serif'],
+      roboto: ['Roboto', 'sans-serif']
+    },
     extend: {},
   },
   plugins: [],
