@@ -24,12 +24,14 @@ function Header() {
             </a>
           </li>
           <li className="time">
-            <p className="font-orbitron text-textColor2 opacity-30 text-[20px]" id="time">
+            <p className="font-orbitron text-textColor2 opacity-40 text-[20px]" id="time">
               00:15:36:69
             </p>
           </li>
-          <li className="github-icon ml-auto">
-            <img className="" src="./src/assets/images/github.png" alt="github icon" />
+          <li className="github-icon ml-auto hover:brightness-150">
+            <a href="https://github.com/HenrikesA/SAWP">
+              <img className="" src="./src/assets/images/github.png" alt="github icon" />
+            </a>
           </li>
         </ul>
       </nav>
