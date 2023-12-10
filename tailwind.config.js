@@ -21,6 +21,9 @@ export default {
       mainSubColor: '#000c18',
       mainLinearStart: '#000c18',
       mainLinearEnd: '#001120',
+      outputContainer: '#001323',
+      outputFill: '#00182D',
+      inputFill: '#001420',
       // Text colors
       textColor1: '#ffffff',
       textColor2: '#808080',
@@ -29,6 +32,10 @@ export default {
       // Border gradient colors
       borderGradientStart: '#000585',
       borderGradientEnd: '#85006F'
+    },
+    // Drop Shadow 
+    dropShadow: {
+      mainShadow: '0px 4px 4px rgba(255, 255, 255, 0.25)'
     },
     // Imported fonts
     fontFamily: {
