@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function Header() {
-  const [dateTime, setDateTime] = React.useState("");
+  const [dateTime, setDateTime] = useState(new Date());
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
-      const currentDate = new Date();
-      const hours = String(currentDate.getHours()).padStart(2, "0");
-      const minutes = String(currentDate.getMinutes()).padStart(2, "0");
-      const seconds = String(currentDate.getSeconds()).padStart(2, "2");
+      setDateTime(new Date());
+    }, 100);
 
-      const updatedDateTime = `00:${hours}:${minutes}:${seconds}`;
-      setDateTime(updatedDateTime);
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  });
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       <nav>
@@ -29,7 +21,7 @@ function Header() {
           </li>
           <li className="time">
             <p className="font-orbitron text-textColor2 opacity-40 text-[20px] md:text-[24px] xxlg:text-[32px]" id="time">
-              {dateTime}
+              {dateTime.toLocaleTimeString("it-IT") + `:${dateTime.getMilliseconds()}`}
             </p>
           </li>
           <li className="github-icon ml-auto hover:brightness-150">
