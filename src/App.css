@@ -53,10 +53,11 @@
 }
 
 .input_output_style::placeholder {
+  color: #fff;
   opacity: 0.3;
   font-size: 14px;
 }
 
-.input_output_style::selection {
-  background-color: #85006F;
+.inputField:focus {
+  border-color: #006ecffa;
 }

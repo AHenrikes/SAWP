@@ -1,10 +1,28 @@
 /* target elements by html elements */
 
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 
+
+CSS rules to specify families
+
+font-family: 'Krona One', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Roboto', sans-serif;
+
+*/
+
 h1 {
   font-size: xx-large;
   font-weight: 900;
+}
+
+/* placeholder for the paragraph in OutputWindow.tsx */
+
+p:empty:not(:focus)::before {
+  content: attr(data-placeholder);
 }
