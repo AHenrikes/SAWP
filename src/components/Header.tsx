@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 function Header() {
   const [dateTime, setDateTime] = useState(new Date());
 
+  // effect for live timer based on current location in a hh:mm:ss:ms format || ms = millisecond
   useEffect(() => {
     const interval = setInterval(() => {
       setDateTime(new Date());
-    }, 100);
+    }, 10);
 
     return () => clearInterval(interval);
   }, []);
@@ -26,7 +27,7 @@ function Header() {
           </li>
           <li className="github-icon ml-auto hover:brightness-150">
             <a href="https://github.com/HenrikesA/SAWP">
-              <img className="" src="./src/assets/images/github.png" alt="github icon" />
+              <img className="text-textColor1" src="./src/assets/github.png" alt="github icon" />
             </a>
           </li>
         </ul>
