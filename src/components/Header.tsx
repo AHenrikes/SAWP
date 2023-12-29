@@ -12,17 +12,17 @@ function Header() {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div>
+    <div id="header">
       <nav>
         <ul className="grid p-4" id="headerList">
           <li className="logo">
-            <a href="#" className="font-krona text-textColor1 drop-shadow-mainShadow text-[20px] md:text-[24px] xxlg:text-[32px]">
+            <a href="#home" className="font-krona text-textColor1 drop-shadow-mainShadow text-[20px] md:text-[24px] xxlg:text-[32px]">
               SAWP
             </a>
           </li>
           <li className="time">
             <p className="font-orbitron text-textColor2 opacity-40 text-[20px] md:text-[24px] xxlg:text-[32px]" id="time">
-              {dateTime.toLocaleTimeString("it-IT") + `:${dateTime.getMilliseconds()}`}
+              {dateTime.toLocaleTimeString("it-IT")}
             </p>
           </li>
           <li className="github-icon ml-auto hover:brightness-150">

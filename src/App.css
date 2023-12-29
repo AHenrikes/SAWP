@@ -1,13 +1,17 @@
 /* target elements by id/class names */
-
-#root {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-#mainCont {
-  grid-template-rows: 1fr 3fr 1fr 1fr;
+#root {
+  display: grid;
+  grid-template-rows: 80px auto 80px;
+  height: 100vh;
+
+  background: linear-gradient(to bottom, #000c18, #001120);
+  overflow-y: scroll;
 }
 
 #headerList {
@@ -15,13 +19,6 @@
   grid-template-areas: 
   "logo . . github"
   ". time . .";
-}
-
-@media only screen and (min-width: 768px) {
-  #headerList {
-    grid-template-areas: 
-    "logo time github";
-  }
 }
 
 .logo {
@@ -58,6 +55,9 @@
   font-size: 14px;
 }
 
-.inputField:focus {
-  border-color: #006ecffa;
+@media only screen and (min-width: 768px) {
+  #headerList {
+    grid-template-areas: 
+    "logo time github";
+  }
 }
