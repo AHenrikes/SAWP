@@ -9,29 +9,38 @@
   display: grid;
   grid-template-rows: 80px auto 80px;
   height: 100vh;
+  width: 100vw;
 
   background: linear-gradient(to bottom, #000c18, #001120);
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
-#headerList {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-areas: 
-  "logo . . github"
-  ". time . .";
-}
+header {
+  position: relative;
+  padding: 10px 10px;
 
-.logo {
-  grid-area: logo;
-}
+  .logo {
+    position: absolute;
+  }
 
-.time {
-  grid-area: time;
-  text-align: center;
-}
+  nav {
 
-.github-icon {
-  grid-area: github;
+    #nav_ul::before {
+      content: '';
+      width: 10px;
+    }
+
+    #nav_ul {
+      display: flex;
+      justify-content: space-between;
+
+      .time {
+        position: relative;
+        top: 35px;
+      }
+    }
+  }
 }
 
 #output {
@@ -49,15 +58,32 @@
   outline-width: 0px;
 }
 
-.input_output_style::placeholder {
+#output_window {
   color: #fff;
+  font-size: 18px;
+  border: none;
+
+  padding: 0 10px;
   opacity: 0.3;
-  font-size: 14px;
+
+  max-width: 99vw;
+  overflow: scroll;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+.checkmark {
+  stroke: greenyellow;
 }
 
 @media only screen and (min-width: 768px) {
-  #headerList {
-    grid-template-areas: 
-    "logo time github";
+  header {
+    nav {
+      #nav_ul {
+        .time {
+          position: static;
+        }
+      }
+    }
   }
 }
