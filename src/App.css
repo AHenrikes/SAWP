@@ -12,7 +12,7 @@
   width: 100vw;
 
   background: linear-gradient(to bottom, #000c18, #001120);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -64,10 +64,10 @@ header {
   border: none;
 
   padding: 0 10px;
-  opacity: 0.3;
+  opacity: 0.5;
 
   max-width: 99vw;
-  overflow: scroll;
+  overflow: auto;
   word-wrap: break-word;
   white-space: pre-line;
 }
