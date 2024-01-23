@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 
 interface UserInputProps {
   onInputChange: (value: string) => void;
@@ -6,52 +6,54 @@ interface UserInputProps {
 
 function UserInput({ onInputChange }: Readonly<UserInputProps>) {
   const [inputValue, setInputValue] = useState('');
-  const [storedString, setStoredString] = useState<string[]>([]);
-  
-  const handleInput = useCallback(({ target: { value } }: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(value);
-    
-    const modifiedValue = storedString.map(element => {
-      const splitedString = element.split('');
-      
-      if(splitedString.length < 2) {
-        return splitedString.join('');
-        
-      } else {
-        const [firstLetter, lastLetter] = [splitedString.shift(), splitedString.pop()]
-        return [firstLetter, shuffle(splitedString), lastLetter].join('');
-      }
-    }).join(' ');
 
-    onInputChange(modifiedValue);
-  },[onInputChange, storedString]);
-  
-  const storeValue = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
-    if(event.key === " " && inputValue.trim() !== "") {
-      setStoredString([...storedString, inputValue.trim()]);
+  const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+    onInputChange(value);
+  };
+
+  const shuffleLetters = (word: string): string => {
+    const letters = word.split('');
+    const length = letters.length;
+
+    for (let i = 0; i < length; i++) {
+      const random = Math.floor(Math.random() * length);
+      [letters[i], letters[random]] = [letters[random], letters[i]];
+    }
+
+    return letters.join('');
+  };
+
+  const mainFunction = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter' && inputValue.trim() !== '') {
+      const words = inputValue.trim().split(' ');
+
+      const modifiedInput = words.map((word) => {
+        if (word.length < 2) {
+          return word;
+
+        } else {
+          const [firstLetter, ...middleLetters] = word;
+          const lastLetter = middleLetters.pop();
+          const shuffledWord = shuffleLetters(middleLetters.join(''));
+
+          return [firstLetter, shuffledWord, lastLetter].join('');
+        }
+      });
+
+      onInputChange(modifiedInput.join(' '))
       setInputValue('');
     }
-  }, [inputValue, storedString]);
-  
-  const shuffle = (array: string[]): string => {
-    const shuffledArray = [...array]
-    const length = shuffledArray.length;
-    
-    for(let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * length);
-      [shuffledArray[i], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[i]];
-    }
-  
-    return shuffledArray.join('');
-  }
+  };
 
   return (
     <div className="w-[60%] md:w-[50%]" >
       <input
-        type="text" 
+        type="text"
         value={inputValue}
-        onChange={handleInput}
-        onKeyDown={storeValue}
+        onChange={inputHandler}
+        onKeyDown={mainFunction}
         placeholder="type here..."
         className="inputField w-[100%] bg-inputFill border-borderColor1 h-12 rounded-[7px] placeholder:font-krona border-[1px] input_output_style" />
     </div>
